@@ -1,3 +1,4 @@
+from string_service import StringService as _string
 
 class PeriodHour:
     def __init__(self, runHours, runDaysOfWeek):
@@ -16,10 +17,10 @@ class PeriodHour:
 
     def getHours(self):
         hours = self.runHours
-        if isEmpty(hours):
+        if _string.isEmpty(hours):
             return '*'
 
-        hours = removeCommaFromLastChar(hours)
+        hours = _string.removeCommaFromLastChar(hours)
         return hours
 
     def getDaysOfMonth(self):
@@ -30,19 +31,11 @@ class PeriodHour:
 
     def getDaysOfWeek(self):
         days = self.runDaysOfWeek
-        if isEmpty(days):
+        if _string.isEmpty(days):
             return '*'
 
-        days = removeCommaFromLastChar(days)
+        days = _string.removeCommaFromLastChar(days)
         return days
-
-def isEmpty(mystring):
-    return (not mystring or mystring.isspace())
-
-def removeCommaFromLastChar(mystring):
-    if mystring[-1] == ',':
-        return mystring[:-1]
-    return mystring
 
 # def isDayDivisibleBy(period):
 #     return 24 % period == 0
