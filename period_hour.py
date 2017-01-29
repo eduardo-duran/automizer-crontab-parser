@@ -15,8 +15,12 @@ class PeriodHour:
         return '0'
 
     def getHours(self):
+        hours = self.runHours
+        if isEmpty(hours):
+            return '*'
 
-        return 'not divisible'
+        hours = removeCommaFromLastChar(hours)
+        return hours
 
     def getDaysOfMonth(self):
         return '*'
