@@ -1,10 +1,8 @@
 from string_service import StringService as _string
 
 class PeriodMinute:
-    def __init__(self, frequency, runHours, runDaysOfWeek):
-        self.frequency = frequency
-        self.runHours = runHours
-        self.runDaysOfWeek = runDaysOfWeek
+    def __init__(self, schedule):
+        self.schedule = schedule
 
     def getFormula(self):
         return (self.getMinutes() + ' ' + 
@@ -14,11 +12,11 @@ class PeriodMinute:
                self.getDaysOfWeek() )
 
     def getMinutes(self):
-        minutes = '*/' + self.frequency
+        minutes = '*/' + self.schedule.frequency
         return minutes
 
     def getHours(self):
-        hours = self.runHours
+        hours = self.schedule.runHours
         if _string.isEmpty(hours):
             return '*'
 
@@ -32,7 +30,7 @@ class PeriodMinute:
         return '*'
 
     def getDaysOfWeek(self):
-        days = self.runDaysOfWeek
+        days = self.schedule.runDaysOfWeek
         if _string.isEmpty(days):
             return '*'
 
