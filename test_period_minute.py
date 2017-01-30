@@ -33,6 +33,7 @@ class TestPeriodMinute(unittest.TestCase):
     def test_calculate_minutes_with_start_minute_set_to_5(self):
         frequency   = 15
         startMinute = 5
+
         minutes = PeriodMinute.calculate_minutes( frequency, startMinute )
 
         self.assertEqual( minutes, "5,20,35,50")
@@ -46,11 +47,19 @@ class TestPeriodMinute(unittest.TestCase):
         self.assertEqual('0,15,30,45', period.getMinutes())
 
     def test_getMinutes_with_minute_set_to_6(self):
-        frequency = '15'
-        dummy     = '6'
-        period    = createPeriod(frequency, dummy, dummy, dummy)
+        frequency   = '15'
+        startMinute = '6'
+        dummy       = '0'
+        period      = createPeriod(frequency, dummy, dummy, startMinute)
 
         self.assertEqual('6,21,36,51', period.getMinutes())
+
+    def test_getMinutes_with_minute_set_to_21(self):
+        frequency = '21'
+        dummy     = '0'
+        period    = createPeriod(frequency, dummy, dummy, dummy)
+
+        self.assertEqual('*/21', period.getMinutes())
 
     def test_getHours_with_two_different_runHours(self):
         runHours = '5,6,'
