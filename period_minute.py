@@ -1,6 +1,7 @@
 from string_service import StringService as _string
 
 class PeriodMinute:
+    
     def __init__(self, schedule):
         self.schedule = schedule
 
@@ -12,6 +13,13 @@ class PeriodMinute:
                self.getDaysOfWeek() )
 
     def getMinutes(self):
+        minutes = self.schedule.frequency
+
+
+        if self.divisible_by_minutes_in_hour( int(minutes) ):
+            minutes = self.calculate_minutes( int(minutes), int(self.schedule.startMinute) )
+            return minutes
+
         minutes = '*/' + self.schedule.frequency
         return minutes
 
@@ -36,3 +44,21 @@ class PeriodMinute:
 
         days = _string.removeCommaFromLastChar(days)
         return days
+
+    @staticmethod
+    def divisible_by_minutes_in_hour(minutes):
+        minutes_in_hour = 60
+        return minutes_in_hour % int(minutes) == 0
+
+    @staticmethod
+    def calculate_minutes(minutes, startMinute):
+        minutes_in_hour = 60
+        minutes_count = startMinute
+        result = str(startMinute) + ','
+
+        while 1 == 1:
+            minutes_count += minutes
+            if minutes_count >= minutes_in_hour:
+                break
+            result += str(minutes_count) + ','
+        return _string.removeCommaFromLastChar( result )
