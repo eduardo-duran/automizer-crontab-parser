@@ -28,22 +28,7 @@ class PeriodDay:
         if _string.isEmpty(days) or days == '0':
             raise SystemExit('Run Days can not be null when using day period')
 
-        days = self.convert_seven_to_zeros( days )
-        
-        days = _string.removeCommaFromLastChar(days)
+        days = _string.replace_values_from_task( days, '7', '0' )
+        days = _string.removeCommaFromLastChar ( days )
+
         return days
-
-    @staticmethod
-    def convert_seven_to_zeros(days):
-        if days == '7':
-            return '0'
-
-        days_array = days.split(',')
-        result = ''
-        for day in days_array:
-            if day == '7':
-                result += '0,'
-            else:
-                result += day + ','
-
-        return result

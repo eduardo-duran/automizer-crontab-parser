@@ -18,7 +18,9 @@ class PeriodHour:
         hours = self.schedule.frequency
         
         if self.divisible_by_hours_in_day( int(hours) ):
-            hours = self.calculate_hours( int(hours) )
+            hours = self.calculate_hours ( int(hours) )
+            hours = _string.replace_values_from_task( hours, '24', '0' )
+            hours = _string.removeCommaFromLastChar ( hours )
             return hours
 
         hours = '*/' + self.schedule.frequency
@@ -51,7 +53,8 @@ class PeriodHour:
 
         while 1 == 1:
             hours_count += frequency
-            if hours_count >= hours_in_day:
+            if hours_count > hours_in_day:
                 break
             result += str(hours_count) + ','
-        return _string.removeCommaFromLastChar( result )
+
+        return result

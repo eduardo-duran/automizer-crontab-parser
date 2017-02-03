@@ -22,17 +22,17 @@ class TestPeriodHour(unittest.TestCase):
     def test_calculate_hours_with_frequency_to_6(self):
         frequency   = 6
 
-        hours = PeriodHour.calculate_hours( frequency )
+        hours       = PeriodHour.calculate_hours( frequency )
 
-        expected    = "6,12,18"
+        expected    = "6,12,18,24,"
         self.assertEqual( expected, hours )
 
     def test_calculate_hours_with_frequency_to_8(self):
         frequency   = 8
 
-        hours = PeriodHour.calculate_hours( frequency )
+        hours       = PeriodHour.calculate_hours( frequency )
 
-        expected    = "8,16"
+        expected    = "8,16,24,"
         self.assertEqual( expected, hours )
 
     def test_getHours_with_frequency_to_8(self):
@@ -42,7 +42,7 @@ class TestPeriodHour(unittest.TestCase):
 
         hours       = period.getHours()
 
-        expected    = "8,16"
+        expected    = "8,16,0"
         self.assertEqual( expected, hours )
 
     def test_getHours_with_frequency_to_7(self):
@@ -84,7 +84,7 @@ class TestPeriodHour(unittest.TestCase):
 
         formula         = period.getFormula()
 
-        expected        = '0 6,12,18 * * 1,2'
+        expected        = '0 6,12,18,0 * * 1,2'
         self.assertEqual( expected, formula )
 
     def test_getFormula_with_start_minute_1(self):
@@ -96,7 +96,7 @@ class TestPeriodHour(unittest.TestCase):
 
         formula         = period.getFormula()
 
-        expected        = '1 6,12,18 * * 1,2'
+        expected        = '1 6,12,18,0 * * 1,2'
         self.assertEqual( expected, formula )
 
     def test_getFormula_with_start_minute_56(self):
@@ -108,7 +108,7 @@ class TestPeriodHour(unittest.TestCase):
 
         formula         = period.getFormula()
 
-        expected        = '56 6,12,18 * * 1,2'
+        expected        = '56 6,12,18,0 * * 1,2'
         self.assertEqual( expected, formula )
 
 def createPeriod( frequency, runHours, runDaysOfWeek, startMinute ):
