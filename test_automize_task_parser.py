@@ -1,23 +1,23 @@
 import unittest
 from automize_task_parser import AutomizeTaskParser
 
-task='data\tasks\EventScan_15>TaskTypes.WINCOMMAND>task_name_EventScan_15>>D:\CORE\bin\EventNotifierCombo.bat>D:\CORE\bin>15>15>>^>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
+task='data\tasks\EventScan_15@%%@TaskTypes.WINCOMMAND@%%@EventScan_15_task_name@%%@@%%@D:\CORE\bin\EventNotifierCombo.bat@%%@D:\CORE\bin@%%@15@%%@15@%%@@%%@^@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@'
 
 taskParser = AutomizeTaskParser(task)
 
 class TestTaskParser(unittest.TestCase):
 
-    def test_name_is_correctly_parsed(self):    
-        self.assertEqual('task_name_EventScan_15', taskParser.parseName())
+    def test_name_is_correctly_parsed(self):
+        self.assertEqual('EventScan_15_task_name', taskParser.getName())
 
     def test_fullPath_is_correctly_parsed(self):
-        self.assertEqual('D:\CORE\bin\EventNotifierCombo.bat', taskParser.parseFullPath())
+        self.assertEqual('D:\CORE\bin\EventNotifierCombo.bat', taskParser.getFullPath())
 
     def test_path_is_correctly_parsed(self):
-        self.assertEqual('D:\CORE\bin', taskParser.parsePath())
+        self.assertEqual('D:\CORE\bin', taskParser.getPath())
 
     def test_filename_is_correctly_parsed(self):
-        self.assertEqual('EventNotifierCombo.bat', taskParser.parseFilename())
+        self.assertEqual('EventNotifierCombo.bat', taskParser.getFilename())
 
 if __name__ == '__main__':
     unittest.main()

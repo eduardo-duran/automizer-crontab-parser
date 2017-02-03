@@ -4,36 +4,36 @@ class AutomizeScheduleExportParser:
         self.export = export
         self.schedule = export.split('@%%@')
 
-    def parseTaskName(self):
+    def getTaskName(self):
         return self.schedule[3]
 
     def isEnabled(self):
         return self.schedule[1]
 
-    def parseType(self):
+    def getType(self):
         scheduleType = self.schedule[2]
         return scheduleType.replace('TaskTypes.', '')
 
-    def parseFrequency(self):
+    def getFrequency(self):
         return self.schedule[5]
 
-    def parsePeriodType(self):
+    def getPeriodType(self):
         return self.schedule[6]
 
-    def parseHour(self):
+    def getHour(self):
         return self.schedule[7]
 
-    def parseMinute(self):
+    def getMinute(self):
         return self.schedule[8]
 
-    def parseHours(self):
+    def getHours(self):
         return self.schedule[9]
 
-    def parseRunDays(self):
+    def getRunDays(self):
         return self.schedule[10]
 
-    def parseMonths(self):
+    def getMonths(self):
         return self.schedule[11]
 
-    def parseWeekDays(self):
+    def getWeekDays(self):
         return self.schedule[13]
