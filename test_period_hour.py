@@ -2,7 +2,7 @@ import unittest
 from period_hour import PeriodHour
 from schedule    import Schedule
 
-class TestPeriodMinute(unittest.TestCase):
+class TestPeriodHour(unittest.TestCase):
     
     def test_hours_are_divisors_of_day(self):
         hoursInDay = 24

@@ -27,6 +27,11 @@ class Schedule:
         return schedule
 
     @staticmethod
-    def createHourSchedule( frequency, runHours, runDaysOfWeek, startMinute ):
+    def createHourSchedule  ( frequency, runHours, runDaysOfWeek, startMinute ):
         schedule = Schedule ( frequency, runHours, runDaysOfWeek, "", "", startMinute, "")
+        return schedule
+
+    @staticmethod
+    def createDaySchedule   ( runDaysOfWeek, startHour, startMinute ):
+        schedule = Schedule ( '', '', runDaysOfWeek, '', '', startMinute, startHour )
         return schedule
