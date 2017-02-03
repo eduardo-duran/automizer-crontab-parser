@@ -3,3 +3,6 @@
 Frquency depends on the Period.
 
 Frequency becomes seconds, minutes, hours, days depending on what Period was selected.
+
+## To run the Tests
+    python -m unittest discover -v
