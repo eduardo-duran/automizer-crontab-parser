@@ -8,6 +8,7 @@ class TestPeriodMinute(unittest.TestCase):
         hoursInDay = 24
         self.assertTrue( PeriodHour.divisible_by_hours_in_day(12) )
         self.assertTrue( PeriodHour.divisible_by_hours_in_day(8) )
+        self.assertTrue( PeriodHour.divisible_by_hours_in_day(6) )
         self.assertTrue( PeriodHour.divisible_by_hours_in_day(4) )
         self.assertTrue( PeriodHour.divisible_by_hours_in_day(1) )
 
@@ -17,35 +18,98 @@ class TestPeriodMinute(unittest.TestCase):
         self.assertFalse( PeriodHour.divisible_by_hours_in_day(7) )
         self.assertFalse( PeriodHour.divisible_by_hours_in_day(5) )
         self.assertFalse( PeriodHour.divisible_by_hours_in_day(9) )
+        
+    def test_calculate_hours_with_frequency_to_6(self):
+        frequency   = 6
 
-    def test_get_minutes_returns_zero(self):
-        frequency = '1'
-        dummy     = ''
+        hours = PeriodHour.calculate_hours( frequency )
 
-        period = createPeriod( frequency, dummy, dummy, dummy )
-        self.assertEqual('0', period.getMinutes())
+        expected    = "6,12,18"
+        self.assertEqual( expected, hours )
 
-    def test_getHours_with_two_different_runHours(self):
-        runHours = '5,6,'
-        dummy    = ''
-        period = createPeriod( dummy, runHours, dummy, dummy )
+    def test_calculate_hours_with_frequency_to_8(self):
+        frequency   = 8
 
-        self.assertEqual('5,6', period.getHours())
+        hours = PeriodHour.calculate_hours( frequency )
 
-    # def test_getDaysOfWeek(self):
-    #     runDaysOfWeek = '2,3,4,5,6,'
-    #     dummy   = ''
-    #     period = createPeriod(dummy, dummy, runDaysOfWeek)
+        expected    = "8,16"
+        self.assertEqual( expected, hours )
 
-    #     self.assertEqual('2,3,4,5,6', period.getDaysOfWeek())
+    def test_getHours_with_frequency_to_8(self):
+        frequency   = '8'
+        dummy       = ''
+        period      = createPeriod( frequency, dummy, dummy, dummy)
 
-    # def test_getFormula(self):
-    #     period = '20'
-    #     runHours  = '5,6,9,'
-    #     runDaysOfWeek   = '1,2,'
-    #     period = createPeriod(period, runHours, runDaysOfWeek)
+        hours       = period.getHours()
 
-    #     self.assertEqual('*/20 5,6,9 * * 1,2', period.getFormula())
+        expected    = "8,16"
+        self.assertEqual( expected, hours )
+
+    def test_getHours_with_frequency_to_7(self):
+        frequency   = '7'
+        dummy       = ''
+        period      = createPeriod( frequency, dummy, dummy, dummy)
+
+        hours       = period.getHours()
+
+        expected    = "*/7"
+        self.assertEqual( expected, hours )
+
+    def test_getHours_with_frequency_to_13(self):
+        frequency   = '13'
+        dummy       = ''
+        period      = createPeriod( frequency, dummy, dummy, dummy)
+
+        hours       = period.getHours()
+
+        expected    = "*/13"
+        self.assertEqual( expected, hours )
+
+    def test_getDaysOfWeek(self):
+        runDaysOfWeek = '2,3,4,5,6,'
+        dummy         = ''
+        period        = createPeriod( dummy, dummy, runDaysOfWeek, dummy )
+
+        days_of_week  = period.getDaysOfWeek()
+
+        expected      = '2,3,4,5,6'
+        self.assertEqual( expected, days_of_week )
+
+    def test_getFormula_with_start_minute_0(self):
+        frequency       = '6'
+        runHours        = '5,6,9,'
+        runDaysOfWeek   = '1,2,'
+        startMinute     = '0'
+        period          = createPeriod( frequency, runHours, runDaysOfWeek, startMinute )
+
+        formula         = period.getFormula()
+
+        expected        = '0 6,12,18 * * 1,2'
+        self.assertEqual( expected, formula )
+
+    def test_getFormula_with_start_minute_1(self):
+        frequency       = '6'
+        runHours        = '5,6,9,'
+        runDaysOfWeek   = '1,2,'
+        startMinute     = '1'
+        period          = createPeriod( frequency, runHours, runDaysOfWeek, startMinute )
+
+        formula         = period.getFormula()
+
+        expected        = '1 6,12,18 * * 1,2'
+        self.assertEqual( expected, formula )
+
+    def test_getFormula_with_start_minute_56(self):
+        frequency       = '6'
+        runHours        = '5,6,9,'
+        runDaysOfWeek   = '1,2,'
+        startMinute     = '56'
+        period          = createPeriod( frequency, runHours, runDaysOfWeek, startMinute )
+
+        formula         = period.getFormula()
+
+        expected        = '56 6,12,18 * * 1,2'
+        self.assertEqual( expected, formula )
 
 def createPeriod( frequency, runHours, runDaysOfWeek, startMinute ):
     schedule = Schedule.createHourSchedule ( frequency, runHours, runDaysOfWeek, startMinute )
