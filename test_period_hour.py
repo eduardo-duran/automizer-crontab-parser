@@ -7,17 +7,17 @@ class TestPeriodHour(unittest.TestCase):
     def test_hours_are_divisors_of_day(self):
         hoursInDay = 24
         self.assertTrue( PeriodHour.divisible_by_hours_in_day(12) )
-        self.assertTrue( PeriodHour.divisible_by_hours_in_day(8) )
-        self.assertTrue( PeriodHour.divisible_by_hours_in_day(6) )
-        self.assertTrue( PeriodHour.divisible_by_hours_in_day(4) )
-        self.assertTrue( PeriodHour.divisible_by_hours_in_day(1) )
+        self.assertTrue( PeriodHour.divisible_by_hours_in_day(8)  )
+        self.assertTrue( PeriodHour.divisible_by_hours_in_day(6)  )
+        self.assertTrue( PeriodHour.divisible_by_hours_in_day(4)  )
+        self.assertTrue( PeriodHour.divisible_by_hours_in_day(1)  )
 
     def test_hours_are_not_divisors_of_day(self):
         hoursInDay = 24
         self.assertFalse( PeriodHour.divisible_by_hours_in_day(13) )
-        self.assertFalse( PeriodHour.divisible_by_hours_in_day(7) )
-        self.assertFalse( PeriodHour.divisible_by_hours_in_day(5) )
-        self.assertFalse( PeriodHour.divisible_by_hours_in_day(9) )
+        self.assertFalse( PeriodHour.divisible_by_hours_in_day(7)  )
+        self.assertFalse( PeriodHour.divisible_by_hours_in_day(5)  )
+        self.assertFalse( PeriodHour.divisible_by_hours_in_day(9)  )
         
     def test_calculate_hours_with_frequency_to_6(self):
         frequency   = 6
