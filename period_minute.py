@@ -6,11 +6,11 @@ class PeriodMinute:
         self.schedule = schedule
 
     def getFormula(self):
-        return (self.getMinutes() + ' ' + 
-               self.getHours() + ' ' +
-               self.getDaysOfMonth() + ' ' +
-               self.getMonths() + ' ' +
-               self.getDaysOfWeek() )
+        return (self.getMinutes()     + ' ' + 
+                self.getHours()       + ' ' +
+                self.getDaysOfMonth() + ' ' +
+                self.getMonths()      + ' ' +
+                self.getDaysOfWeek() )
 
     def getMinutes(self):
         minutes = self.schedule.frequency

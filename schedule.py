@@ -25,3 +25,8 @@ class Schedule:
     def createMinuteSchedule( frequency, runHours, runDaysOfWeek, startMinute ):
         schedule = Schedule ( frequency, runHours, runDaysOfWeek, "", "", startMinute, "")
         return schedule
+
+    @staticmethod
+    def createHourSchedule( frequency, runHours, runDaysOfWeek, startMinute ):
+        schedule = Schedule ( frequency, runHours, runDaysOfWeek, "", "", startMinute, "")
+        return schedule
