@@ -1,5 +1,5 @@
 import unittest
-from automize_task_parser import AutomizeTaskParser
+from application.automize_task_parser import AutomizeTaskParser
 
 task='data\tasks\EventScan_15@%%@TaskTypes.WINCOMMAND@%%@EventScan_15_task_name@%%@@%%@D:\CORE\bin\EventNotifierCombo.bat@%%@D:\CORE\bin@%%@15@%%@15@%%@@%%@^@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@'
 

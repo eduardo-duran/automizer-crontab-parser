@@ -1,5 +1,5 @@
 import unittest
-from automize_schedule_export_parser import AutomizeScheduleExportParser
+from application.automize_schedule_export_parser import AutomizeScheduleExportParser
 
 export = 'data\schedules\EventScan_15@%%@true@%%@TaskTypes.WINCOMMAND@%%@EventScan_15_task_name@%%@@%%@15@%%@1@%%@18@%%@2@%%@5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,@%%@1,2,3,4,5,6,7,@%%@0,1,2,3,4,5,6,7,8,9,10,11,@%%@@%%@1,2,3,4,5@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@@%%@'
 
