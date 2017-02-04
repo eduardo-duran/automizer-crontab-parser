@@ -1,5 +1,5 @@
-from string_service import StringService as _string
-from date_service   import DateService   as _date
+from infrastructure.string_service import StringService as _string
+from infrastructure.date_service   import DateService   as _date
 
 class PeriodHour:
     def __init__(self, schedule):

@@ -2,7 +2,7 @@ import sys
 from automize_schedule_export_parser import AutomizeScheduleExportParser
 from automize_task_parser            import AutomizeTaskParser
 from period_creator                  import PeriodCreator
-from range_service                   import RangeService as _range
+from infrastructure.range_service    import RangeService as _range
 
 class Program:
     def __init__(self, task, export):

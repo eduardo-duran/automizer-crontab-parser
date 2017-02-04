@@ -1,5 +1,5 @@
 import unittest
-from range_service import RangeService as _range
+from infrastructure.range_service import RangeService as _range
 
 class TestRangeService(unittest.TestCase):
 

@@ -1,5 +1,5 @@
-from string_service import StringService as _string
-from period_day import PeriodDay
+from infrastructure.string_service import StringService as _string
+from period_day                    import PeriodDay
 
 class PeriodWeek:
     def __init__(self, schedule):
