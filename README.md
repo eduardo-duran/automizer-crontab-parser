@@ -7,12 +7,14 @@ Frequency becomes seconds, minutes, hours, days depending on what Period was sel
 Period Week, is pretty much the same as Day so translation should be equal.
 
 ## To run the Tests
-    python -m unittest discover -v tests
+    python -Bm unittest discover -v tests
 
 ## To use
 * Export tasks and schedules from Automizer using delimiter @%%@
 
-    `python -m application.convert (filepath of task) (filepath of schedules)`
+#### Run command:
+    python -Bm application.convert (filepath of task) (filepath of schedules)
+
 
 ## To be done
 * Implement month period ( i don't need )
