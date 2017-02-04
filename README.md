@@ -16,8 +16,7 @@ Period Week, is pretty much the same as Day so translation should be equal.
 
 ## To be done
 * Implement month period ( i don't need )
-* Verify run hours, run days matches rules correctly
-* Create a beautiful folder structure
+* Verify run hours, run days matches rules correctly (specifically on hour period)
 
 ### Reference
     http://www.hiteksoftware.com/help/english/gui/schedulingtasks.htm

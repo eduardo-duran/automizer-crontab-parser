@@ -1,6 +1,6 @@
 import unittest
-from period_day import PeriodDay
-from schedule   import Schedule
+from application.services.period_day import PeriodDay
+from domain.schedule                 import Schedule
 
 class TestPeriodDay(unittest.TestCase):
 

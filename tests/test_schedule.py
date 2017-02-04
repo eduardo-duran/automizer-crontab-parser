@@ -1,5 +1,5 @@
 import unittest
-from schedule import Schedule
+from domain.schedule import Schedule
 class TestSchedule(unittest.TestCase):
 
     def test_creation_of_minute_task(self):

@@ -1,6 +1,6 @@
 import unittest
-from period_minute import PeriodMinute
-from schedule      import Schedule
+from application.services.period_minute import PeriodMinute
+from domain.schedule                    import Schedule
 
 class TestPeriodMinute(unittest.TestCase):
 

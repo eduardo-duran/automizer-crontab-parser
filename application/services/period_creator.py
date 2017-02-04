@@ -1,8 +1,8 @@
-from period_minute  import PeriodMinute
-from period_hour    import PeriodHour
-from period_day     import PeriodDay
-from period_week    import PeriodWeek
-from schedule       import Schedule
+from period_minute    import PeriodMinute
+from period_hour      import PeriodHour
+from period_day       import PeriodDay
+from period_week      import PeriodWeek
+from domain.schedule  import Schedule
 
 class PeriodCreator:
 
