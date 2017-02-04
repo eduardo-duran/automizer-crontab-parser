@@ -1,4 +1,5 @@
 from string_service import StringService as _string
+from date_service   import DateService   as _date
 
 class PeriodMinute:
     
@@ -42,7 +43,8 @@ class PeriodMinute:
         if _string.isEmpty(days):
             return '*'
 
-        days = _string.removeCommaFromLastChar(days)
+        days = _date.decrease_1_day_to_match_crontab( days )
+        days = _string.removeCommaFromLastChar( days )
         return days
 
     @staticmethod

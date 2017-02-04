@@ -31,7 +31,7 @@ class TestPeriodDay(unittest.TestCase):
 
         days           = period.getDaysOfWeek()
 
-        expected       = "2"
+        expected       = "1"
         self.assertEqual( expected, days )
 
     def test_getDaysOfWeek_with_two_values(self):
@@ -41,7 +41,7 @@ class TestPeriodDay(unittest.TestCase):
 
         days           = period.getDaysOfWeek()
 
-        expected       = "2,3"
+        expected       = "1,2"
         self.assertEqual( expected, days )
 
     def test_getDaysOfWeek_with_zero_runDays_throw_exception(self):
@@ -58,34 +58,34 @@ class TestPeriodDay(unittest.TestCase):
 
         self.assertRaises( SystemExit, period.getDaysOfWeek )
 
-    def test_getDaysOfWeek_with_one_value_7_runDays_returns_0(self):
+    def test_getDaysOfWeek_with_one_value_7_runDays_returns_6(self):
         days_of_week   = '7'
         dummy          = ''
         period         = createPeriod( days_of_week, dummy, dummy )
 
         days           = period.getDaysOfWeek()
 
-        expected       = "0"
+        expected       = "6"
         self.assertEqual( expected, days )
 
-    def test_getDaysOfWeek_with_two_values_with_7_runDays_converts_7_to_0(self):
+    def test_getDaysOfWeek_with_two_values_with_7_runDays_returns_correctly(self):
         days_of_week   = '4,7'
         dummy          = ''
         period         = createPeriod( days_of_week, dummy, dummy )
 
         days           = period.getDaysOfWeek()
 
-        expected       = "4,0"
+        expected       = "3,6"
         self.assertEqual( expected, days )
 
-    def test_getDaysOfWeek_with_five_values_with_a_7_in_runDays_converts_7_to_0(self):
+    def test_getDaysOfWeek_with_five_values_with_a_7_in_runDays_returns_correctly(self):
         days_of_week   = '2,3,4,5,7'
         dummy          = ''
         period         = createPeriod( days_of_week, dummy, dummy )
 
         days           = period.getDaysOfWeek()
 
-        expected       = "2,3,4,5,0"
+        expected       = "1,2,3,4,6"
         self.assertEqual( expected, days )
 
     def test_getDaysOfMonth_is_ignored_and_returns_star(self):
@@ -114,7 +114,7 @@ class TestPeriodDay(unittest.TestCase):
 
         formula         = period.getFormula()
 
-        expected        = '4 16 * * 1'
+        expected        = '4 16 * * 0'
         self.assertEqual( expected, formula )
 
     def test_getFormula_with_two_days(self):
@@ -125,10 +125,10 @@ class TestPeriodDay(unittest.TestCase):
 
         formula         = period.getFormula()
 
-        expected        = '52 2 * * 4,5'
+        expected        = '52 2 * * 3,4'
         self.assertEqual( expected, formula )
 
-    def test_getFormula_with_four_days_converting_7_to_0(self):
+    def test_getFormula_with_four_days_returns_correctly(self):
         runDaysOfWeek   = '2,4,5,7'
         startHour       = '5'
         startMinute     = '44'
@@ -136,7 +136,7 @@ class TestPeriodDay(unittest.TestCase):
 
         formula         = period.getFormula()
 
-        expected        = '44 5 * * 2,4,5,0'
+        expected        = '44 5 * * 1,3,4,6'
         self.assertEqual( expected, formula )
 
 def createPeriod( runDaysOfWeek, startHour, startMinute ):

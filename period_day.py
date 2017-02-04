@@ -1,4 +1,5 @@
 from string_service import StringService as _string
+from date_service   import DateService   as _date
 
 class PeriodDay:
     def __init__(self, schedule):
@@ -28,7 +29,7 @@ class PeriodDay:
         if _string.isEmpty(days) or days == '0':
             raise SystemExit('Run Days can not be null when using day period')
 
-        days = _string.replace_values_from_task( days, '7', '0' )
-        days = _string.removeCommaFromLastChar ( days )
+        days = _date.decrease_1_day_to_match_crontab( days )
+        days = _string.removeCommaFromLastChar      ( days )
 
         return days

@@ -73,7 +73,7 @@ class TestPeriodMinute(unittest.TestCase):
         dummy   = ''
         period  = createPeriod(dummy, dummy, runDays, dummy)
 
-        self.assertEqual('2,3,4,5,6', period.getDaysOfWeek())
+        self.assertEqual('1,2,3,4,5', period.getDaysOfWeek())
 
     def test_getFormula(self):
         frequency   = '20'
@@ -82,7 +82,7 @@ class TestPeriodMinute(unittest.TestCase):
         startMinute = '0'
         period      = createPeriod(frequency, runHours, runDays, startMinute)
 
-        self.assertEqual('0,20,40 5,6,9 * * 1,2', period.getFormula())
+        self.assertEqual('0,20,40 5,6,9 * * 0,1', period.getFormula())
 
 def createPeriod(frequency, runHours, runDays, startMinute):
     schedule = Schedule.createMinuteSchedule ( frequency, runHours, runDays, startMinute )

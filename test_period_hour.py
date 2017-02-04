@@ -72,7 +72,7 @@ class TestPeriodHour(unittest.TestCase):
 
         days_of_week  = period.getDaysOfWeek()
 
-        expected      = '2,3,4,5,6'
+        expected      = '1,2,3,4,5'
         self.assertEqual( expected, days_of_week )
 
     def test_getFormula_with_start_minute_0(self):
@@ -84,7 +84,7 @@ class TestPeriodHour(unittest.TestCase):
 
         formula         = period.getFormula()
 
-        expected        = '0 6,12,18,0 * * 1,2'
+        expected        = '0 6,12,18,0 * * 0,1'
         self.assertEqual( expected, formula )
 
     def test_getFormula_with_start_minute_1(self):
@@ -96,7 +96,7 @@ class TestPeriodHour(unittest.TestCase):
 
         formula         = period.getFormula()
 
-        expected        = '1 6,12,18,0 * * 1,2'
+        expected        = '1 6,12,18,0 * * 0,1'
         self.assertEqual( expected, formula )
 
     def test_getFormula_with_start_minute_56(self):
@@ -108,7 +108,7 @@ class TestPeriodHour(unittest.TestCase):
 
         formula         = period.getFormula()
 
-        expected        = '56 6,12,18,0 * * 1,2'
+        expected        = '56 6,12,18,0 * * 0,1'
         self.assertEqual( expected, formula )
 
 def createPeriod( frequency, runHours, runDaysOfWeek, startMinute ):
