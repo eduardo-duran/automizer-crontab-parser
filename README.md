@@ -12,7 +12,7 @@ Period Week, is pretty much the same as Day so translation should be equal.
 ## To use
 * Export tasks and schedules from Automizer using delimiter @%%@
 
-    python -m application.convert (filepath of task) (filepath of schedules)
+    `python -m application.convert (filepath of task) (filepath of schedules)`
 
 ## To be done
 * Implement month period ( i don't need )
