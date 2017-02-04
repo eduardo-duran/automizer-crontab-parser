@@ -2,6 +2,7 @@ import sys
 from automize_schedule_export_parser import AutomizeScheduleExportParser
 from automize_task_parser            import AutomizeTaskParser
 from period_creator                  import PeriodCreator
+from range_service                   import RangeService as _range
 
 class Program:
     def __init__(self, task, export):
@@ -37,9 +38,11 @@ class Program:
                 print ( schedule.getTaskName() + ' does not have matching task.' )
                 continue
 
-            period = PeriodCreator.create_period_from( schedule )
+            period  = PeriodCreator.create_period_from( schedule )
+            crontab = period.getFormula()
+            crontab = _range.convert_list_to_range( crontab.split(' ') )
 
-            print( task.getName() + ' ' + period.getFormula() )
+            print( task.getFullPath() + ' ' + crontab )
 
 
 def show_usage():

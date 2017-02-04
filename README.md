@@ -16,7 +16,7 @@ Period Week, is pretty much the same as Day so translation should be equal.
 
 ## To be done
 * Implement month period ( i don't need )
-* Implement range of crontabs 1,2,3,4 becomes 1-4
+* Verify run hours, run days matches rules correctly
 * Create a beautiful folder structure
 
 ### Reference
