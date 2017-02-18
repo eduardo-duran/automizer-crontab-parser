@@ -35,3 +35,8 @@ class Schedule:
     def createDaySchedule   ( runDaysOfWeek, startHour, startMinute ):
         schedule = Schedule ( '', '', runDaysOfWeek, '', '', startMinute, startHour )
         return schedule
+
+    @staticmethod
+    def createWeekSchedule   ( runDaysOfWeek, startHour, startMinute ):
+        schedule = Schedule ( '', '', runDaysOfWeek, '', '', startMinute, startHour )
+        return schedule

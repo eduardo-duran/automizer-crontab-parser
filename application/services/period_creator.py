@@ -39,7 +39,8 @@ class PeriodCreator:
             return PeriodDay   ( schedule )
 
         elif period_type == WEEKS:
-            raise SystemExit('not implemented')
+            schedule = Schedule.createWeekSchedule   ( runDays, start_hour, start_minute )
+            return PeriodWeek  ( schedule )
 
         else:
             return None
