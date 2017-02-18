@@ -5,9 +5,8 @@ from application.services.period_creator  import PeriodCreator
 from infrastructure.range_service         import RangeService as _range
 
 class Program:
-    def __init__(self, task, export):
-        self.taskParser = AutomizeTaskParser(task)
-        self.scheduleParser = AutomizeScheduleExportParser(export)
+    def __init__(self):
+        pass
 
     @staticmethod
     def main():

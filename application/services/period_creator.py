@@ -31,7 +31,7 @@ class PeriodCreator:
             return PeriodMinute( schedule )
 
         elif period_type == HOURS:
-            schedule = Schedule.createHourSchedule  ( frequency, runHours, runDays )
+            schedule = Schedule.createHourSchedule  ( frequency, runHours, runDays, start_minute )
             return PeriodHour  ( schedule )
 
         elif period_type == DAYS:
