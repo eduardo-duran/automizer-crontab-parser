@@ -28,7 +28,7 @@ class Program:
             schedules.append( AutomizeScheduleExportParser(schedule) )
 
         for schedule in schedules:
-            if not schedule.isEnabled:
+            if schedule.isEnabled() == 'false':
                 continue
             
             task = find_task_named( schedule.getTaskName(), tasks )
