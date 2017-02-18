@@ -12,7 +12,8 @@ class PeriodCreator:
         MINUTES = '1'
         HOURS   = '2'
         DAYS    = '3'
-        WEEKS   = '4' 
+        WEEKS   = '4'
+        MONTHS  = '5'
 
         period_type  = scheduleParser.getPeriodType()
 
@@ -41,6 +42,9 @@ class PeriodCreator:
         elif period_type == WEEKS:
             schedule = Schedule.createWeekSchedule   ( runDays, start_hour, start_minute )
             return PeriodWeek  ( schedule )
+
+        elif period_type == MONTHS:
+            return None
 
         else:
             return None
